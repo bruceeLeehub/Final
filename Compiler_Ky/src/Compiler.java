@@ -29,18 +29,18 @@ public class Compiler {
         Interpret.runInterpreter();
 
 
-        FileWriter fw = new FileWriter(resultFile);
+        FileWriter fileWriter = new FileWriter(resultFile);
         Error.errorPrintList.sort(Comparator.comparingInt(o -> Integer.parseInt(o.split(" ")[0])));
 
         /* print error
         for (String s : Error.errorPrintList) {
-            fw.write(s + "\n");
-            fw.flush();
+            fileWriter.write(s + "\n");
+            fileWriter.flush();
         }
         */
         for (String line_result : Interpret.pcodeOutput) {
-            fw.write(line_result);
-            fw.flush();
+            fileWriter.write(line_result);
+            fileWriter.flush();
         }
     }
 }
