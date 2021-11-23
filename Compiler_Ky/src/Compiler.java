@@ -4,20 +4,12 @@ import java.util.ArrayList;
 import java.util.Comparator;
 
 import MyError.Error;
-import NoneTerminal.CompUnit;
-import WordAnalyse.IdentifySymbol;
-import WordAnalyse.SourceCode;
-import WordAnalyse.Symbol;
-import Tables.Code;
+import NoneTerminal.*;
+import WordAnalyse.*;
+
 
 
 public class Compiler {
-//    public static void addValToDisStack(int lev, int value) {
-//        if (Interpret.disStack.get(lev) == null) {
-//            Interpret.disStack.put(lev, new ArrayList<>());
-//        }
-//        Interpret.disStack.get(lev).add(value);
-//    }
     public static void main(String[] args) throws IOException {
         String sourceFile = "testfile.txt";
         String resultFile = "pcoderesult.txt";
