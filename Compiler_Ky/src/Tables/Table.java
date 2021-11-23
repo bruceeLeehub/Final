@@ -1,6 +1,6 @@
 package Tables;
 
-import NoneTerminal.Ident;
+import Non_Terminal_Symbols_SysY.Ident;
 
 import java.util.ArrayList;
 import java.util.TreeMap;
@@ -23,17 +23,17 @@ public class Table {
     public static int get_ConstArrayValue(Ident ident, ArrayList<Integer> dim_Value) {
         String name = ident.getId_Name();
         TableEntry tableEntry = getAttrTableEntry(name);
-        ArrayList<ArrTableEntry> arrayTable = ArrTable.getArrTable();
+        ArrayList<ArrayTableEntry> arrayTable = ArrayTable.getArrTable();
         int ref = tableEntry.get_Ref();
-        ArrTableEntry arrTableEntry = arrayTable.get(ref);
+        ArrayTableEntry arrayTableEntry = arrayTable.get(ref);
         int back = dim_Value.size() - 1;
         int diff = dim_Value.get(back);
         for(int i = dim_Value.size() - 2; i >=0 ;i--){
             int dimValue_i = dim_Value.get(i);
-            int upperBounds = arrTableEntry.getUpper_Bounds().get(i);
+            int upperBounds = arrayTableEntry.getUpper_Bounds().get(i);
             diff  = diff + dimValue_i * upperBounds;
         }
-        ArrayList<Integer> constArray = arrTableEntry.getConst_Array();
+        ArrayList<Integer> constArray = arrayTableEntry.getConst_Array();
         int value = constArray.get(diff);
         return value;
     }
@@ -49,9 +49,9 @@ public class Table {
         String name = ident.getId_Name();
         TableEntry tableEntry = getAttrTableEntry(name);
         int ref = tableEntry.get_Ref();
-        ArrayList<ArrTableEntry> arrTable = ArrTable.getArrTable();
-        ArrTableEntry arrTableEntry = arrTable.get(ref);
-        ArrayList<Integer> arrayDims = arrTableEntry.getUpper_Bounds();
+        ArrayList<ArrayTableEntry> arrTable = ArrayTable.getArrTable();
+        ArrayTableEntry arrayTableEntry = arrTable.get(ref);
+        ArrayList<Integer> arrayDims = arrayTableEntry.getUpper_Bounds();
         return arrayDims;
     }
 
